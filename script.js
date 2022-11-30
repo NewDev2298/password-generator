@@ -3,6 +3,9 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   // TODO: CODE GOES HERE
+  return '';
+
+
   var isUppercase = confirm('Would you like to use uppercase?');
   var isLowercase = false;
   var isSpecial = false;
