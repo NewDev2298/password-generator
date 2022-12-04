@@ -20,10 +20,13 @@ function gatherInfo() {
     return;
   }
 
-  var isUppercase = confirm('Would you like to use uppercase? Click.....');
-  var isLowercase = confirm('Would you like to use lowercase?');
-  var isSpecial = confirm('Would you like to use special characters?');
-  var isNumber = confirm('Would you like to you numbers?');
+  var isUppercase = confirm("Would you like to include uppercase characters in your password? Click OK for Yes or Cancel for No.");
+
+  var isLowercase = confirm("Would you like to include lowercase characters in your password? Click OK for Yes or Cancel for No.");
+
+  var isSpecial = confirm("Would you like to include special characters characters in your password? Click OK for Yes or Cancel for No.");
+
+  var isNumber = confirm("Would you like to include numbers in your password? Click OK for Yes or Cancel for No.");
 
   if (
     isUppercase === false &&
