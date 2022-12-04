@@ -7,26 +7,45 @@ var downLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "
 var capLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 
-function gatherInfo() {
-  var passwordLength = parseInt(prompt("Choose a password length between 8 and 128 characters."));
+// function gatherInfo() {
+  function generatePassword() {
 
-  if (isNaN(passwordLength) === true) {
+  var potential = ""
+  // var   
+  var requirement = parseInt(prompt("Choose a password length between 8 and 128 characters."));
+
+  if (isNaN(requirement) === true) {
     alert("Invalid response. Please enter a number.")
     return;
   }
 
-  if (passwordLength > 128 || passwordLength < 8) {
+  if (requirement > 128 || requirement < 8) {
     alert("Invalid response. Choose a password length between 8 and 128 characters.")
     return;
   }
 
   var isUppercase = confirm("Would you like to include uppercase characters in your password? Click OK for Yes or Cancel for No.");
 
+  if (isUppercase) {
+    potential += capLetters;
+  }
   var isLowercase = confirm("Would you like to include lowercase characters in your password? Click OK for Yes or Cancel for No.");
 
+  if (isLowercase) {
+    potential += downLetters;
+  }
   var isSpecial = confirm("Would you like to include special characters characters in your password? Click OK for Yes or Cancel for No.");
 
+  if (isSpecial) {
+    potential += special;
+  }
   var isNumber = confirm("Would you like to include numbers in your password? Click OK for Yes or Cancel for No.");
+  
+  if(isNumber) {
+    potential += numbers;
+  }
+
+  console.log(potential, "potential");
 
   if (
     isUppercase === false &&
@@ -34,26 +53,33 @@ function gatherInfo() {
     isSpecial === false &&
     isNumber === false
   ) {
-    alert("Please choose OK for at least one option.")
+    alert("Please choose at least one option. Click generate to try again.")
     return;
+
   }
 
-var userChoices = {
-  passwordLength: passwordLength,
-  isUppercase: isUppercase,
-  isLowercase: isLowercase,
-  isSpecial: isSpecial,
-  isNumber: isNumber
-}
+  // if (isUppercase || isLowercase || isNumber || isSpecial) {
+  //   for (var i = 0; i < passwordLength; i++) {
+  //     var random = Math.floor(Math.random() * )
+  //   }
+  // }
 
-console.log(userChoices)
+// var userChoices = {
+//   passwordLength: passwordLength,
+//   isUppercase: isUppercase,
+//   isLowercase: isLowercase,
+//   isSpecial: isSpecial,
+//   isNumber: isNumber
+// }
 
-return userChoices;
+// console.log(userChoices)
 
-}
+// return userChoices;
+
+// }
 // FUNCTION HERE TO PICK RANDOM OPTION FROM ARRAYS
 
-function generatePassword() {
+// function generatePassword() {
 
 // LOOP THRU EACH ARRAY USING RANDOM FUNCTION AND SAVE RESULT
 // 
@@ -61,8 +87,8 @@ function generatePassword() {
 }
 
 function writePassword() {
-  // var password = generatePassword();
-  var password = gatherInfo();
+  var password = generatePassword();
+  // var password = gatherInfo();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
