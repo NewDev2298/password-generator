@@ -1,10 +1,10 @@
 var generateBtn = document.querySelector("#generate");
 
 
-var special = [":", ";", "<", "=", ">", "?", "@", "[", "!"];
-var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-var downLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var capLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var special = "!@#$%^&*-=+?,.`~|:;";
+var numbers = "0123456789";
+var downLetters = "abcdefghijklmnopqrstuvwxyz";
+var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
 // function gatherInfo() {
@@ -13,12 +13,13 @@ var capLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
   var choices = ""
   var password = ""
 
-  var requirement = parseInt(prompt("Choose a password length between 8 and 128 characters."));
-  if (isNaN(requirement) === true) {
+
+  var passwordLength = parseInt(prompt("Choose a password length between 8 and 128 characters."));
+  if (isNaN(passwordLength) === true) {
     alert("Invalid response. Please enter a number.")
     return;
   }
-  if (requirement > 128 || requirement < 8) {
+  if (passwordLength > 128 || passwordLength < 8) {
     alert("Invalid response. Choose a password length between 8 and 128 characters.")
     return;
   }
@@ -66,7 +67,7 @@ var capLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
 //   isLowercase: isLowercase,
 //   isSpecial: isSpecial,
 //   isNumber: isNumber
-// }
+
 
 // console.log(userChoices)
 
