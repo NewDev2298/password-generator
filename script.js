@@ -1,15 +1,15 @@
 var generateBtn = document.querySelector("#generate");
 
+var special = "!@#$%^&*-=+?,.`~|:;";
+var numbers = "0123456789";
+var downLetters = "abcdefghijklmnopqrstuvwxyz";
+var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+var choices = "";
+var password = "";
 
 function generatePassword() {
 
-  var special = "!@#$%^&*-=+?,.`~|:;";
-  var numbers = "0123456789";
-  var downLetters = "abcdefghijklmnopqrstuvwxyz";
-  var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  
-  var choices = "";
-  var password = "";
 
   var passwordLength = parseInt(prompt("Choose a password length between 8 and 128 characters."));
   if (isNaN(passwordLength) === true) {
@@ -57,14 +57,6 @@ function generatePassword() {
     return password;
   }
 }
-// var userChoices = {
-//   passwordLength: passwordLength,
-//   isUppercase: isUppercase,
-//   isLowercase: isLowercase,
-//   isSpecial: isSpecial,
-//   isNumber: isNumber
-
-
 
 
 function writePassword() {
