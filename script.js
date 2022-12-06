@@ -1,18 +1,15 @@
 var generateBtn = document.querySelector("#generate");
 
 
-var special = "!@#$%^&*-=+?,.`~|:;";
-var numbers = "0123456789";
-var downLetters = "abcdefghijklmnopqrstuvwxyz";
-var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+function generatePassword() {
 
-
-// function gatherInfo() {
-  function generatePassword() {
-
-  var choices = ""
-  var password = ""
-
+  var special = "!@#$%^&*-=+?,.`~|:;";
+  var numbers = "0123456789";
+  var downLetters = "abcdefghijklmnopqrstuvwxyz";
+  var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  
+  var choices = "";
+  var password = "";
 
   var passwordLength = parseInt(prompt("Choose a password length between 8 and 128 characters."));
   if (isNaN(passwordLength) === true) {
@@ -23,7 +20,11 @@ var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     alert("Invalid response. Choose a password length between 8 and 128 characters.")
     return;
   }
-
+  
+  var isUppercase = confirm("Would you like to include uppercase characters in your password? Click OK for Yes or Cancel for No.");
+  var isLowercase = confirm("Would you like to include lowercase characters in your password? Click OK for Yes or Cancel for No.");
+  var isSpecial = confirm("Would you like to include special characters characters in your password? Click OK for Yes or Cancel for No.");
+  var isNumber = confirm("Would you like to include numbers in your password? Click OK for Yes or Cancel for No.");
 
   if (isUppercase) {
     choices += capLetters;
@@ -38,10 +39,6 @@ var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     choices += numbers;
   }
   
-  var isUppercase = confirm("Would you like to include uppercase characters in your password? Click OK for Yes or Cancel for No.");
-  var isLowercase = confirm("Would you like to include lowercase characters in your password? Click OK for Yes or Cancel for No.");
-  var isSpecial = confirm("Would you like to include special characters characters in your password? Click OK for Yes or Cancel for No.");
-  var isNumber = confirm("Would you like to include numbers in your password? Click OK for Yes or Cancel for No.");
 
   if (
     isUppercase === false &&
@@ -56,9 +53,9 @@ var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   if (isUppercase || isLowercase || isNumber || isSpecial) {
     for (var i = 0; i < passwordLength; i++) {
       var random = Math.floor(Math.random() * choices.length );
-      // password += 
-      console.log(random);
+      password += choices[random];
     }
+    return password;
   }
 }
 // var userChoices = {
@@ -69,23 +66,10 @@ var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //   isNumber: isNumber
 
 
-// console.log(userChoices)
-
-// return userChoices;
-
-// }
-// FUNCTION HERE TO PICK RANDOM OPTION FROM ARRAYS
-
-// function generatePassword() {
-
-// LOOP THRU EACH ARRAY USING RANDOM FUNCTION AND SAVE RESULT
-// 
-
 
 
 function writePassword() {
   var password = generatePassword();
-  // var password = gatherInfo();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
