@@ -6,6 +6,6 @@ This week's challenge required modifying starter code to create an application t
 
 ## Visuals:
 
-![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
+![Password Generator](assets/03-javascript-homework-demo.png)
 
 
