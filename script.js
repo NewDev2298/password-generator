@@ -14,11 +14,11 @@ function generatePassword() {
   var passwordLength = parseInt(prompt("Choose a password length between 8 and 128 characters."));
   if (isNaN(passwordLength) === true) {
     alert("Invalid response. Please enter a number.")
-    return;
+    return "";
   }
   if (passwordLength > 128 || passwordLength < 8) {
     alert("Invalid response. Choose a password length between 8 and 128 characters.")
-    return;
+    return "";
   }
   
   var isUppercase = confirm("Would you like to include uppercase characters in your password? Click OK for Yes or Cancel for No.");
@@ -38,7 +38,6 @@ function generatePassword() {
   if(isNumber) {
     choices += numbers;
   }
-  
 
   if (
     isUppercase === false &&
@@ -47,7 +46,7 @@ function generatePassword() {
     isNumber === false
   ) {
     alert("Please choose at least one option. Click generate to try again.")
-    return;
+    return "";
   }
  
   if (isUppercase || isLowercase || isNumber || isSpecial) {
